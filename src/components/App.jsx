@@ -1,18 +1,11 @@
-import mestoLogo from './images/logo.svg';
-import avatar from './images/Cousteau.jpg';
-import './index.css';
+import avatar from '../images/Cousteau.jpg';
+import '../index.css';
+import Header from './Header.jsx';
 
 function App() {
   return (
     <div className="page">
-      <header className="header">
-        <img
-          src={mestoLogo}
-          alt="Логотип проекта 'Место'"
-          className="header__logo"
-        />
-      </header>
-
+      <Header />
       <main>
         <section className="profile">
           <div className="profile__main">
@@ -47,16 +40,14 @@ function App() {
 
         <section className="cards"></section>
       </main>
-
       <footer className="footer">
         <p className="footer__copyright">&copy; 2020 Mesto Russia</p>
       </footer>
-
       <section className="popup popup_profile">
         <form
           name="profile-info"
           className="popup__container popup__container_profile"
-          novalidate
+          noValidate
         >
           <button
             type="button"
@@ -70,8 +61,8 @@ function App() {
               placeholder="Имя"
               name="name"
               required=""
-              minlength="2"
-              maxlength="40"
+              minLength="2"
+              maxLength="40"
               className="popup__input popup__input_type_name"
               id="profile-name-input"
             />
@@ -84,8 +75,8 @@ function App() {
               placeholder="Род занятий"
               name="job"
               required=""
-              minlength="2"
-              maxlength="200"
+              minLength="2"
+              maxLength="200"
               className="popup__input popup__input_type_occupation"
               id="profie-occupation-input"
             />
@@ -102,12 +93,11 @@ function App() {
           </button>
         </form>
       </section>
-
       <section className="popup popup_card">
         <form
           name="add-card"
           className="popup__container popup__container_card"
-          novalidate
+          noValidate
         >
           <button
             type="button"
@@ -121,8 +111,8 @@ function App() {
               placeholder="Название"
               name="name"
               required=""
-              minlength="2"
-              maxlength="30"
+              minLength="2"
+              maxLength="30"
               className="popup__input popup__input_type_title"
               id="card-title-input"
             />
@@ -151,7 +141,6 @@ function App() {
           </button>
         </form>
       </section>
-
       <section className="popup popup_image">
         <div className="popup__image-container">
           <button
@@ -167,7 +156,6 @@ function App() {
           <h3 className="popup__card-title">Название выбранного места</h3>
         </div>
       </section>
-
       <section className="popup popup_remove">
         <form className="popup__container popup__container_remove">
           <h2 className="popup__title popup__title_remove">Вы уверены?</h2>
@@ -184,12 +172,11 @@ function App() {
           ></button>
         </form>
       </section>
-
       <section className="popup popup_avatar">
         <form
           name="change-avatar"
           className="popup__container popup__container_avatar"
-          novalidate
+          noValidate
         >
           <button
             type="button"
@@ -219,7 +206,6 @@ function App() {
           </button>
         </form>
       </section>
-
       <template className="card-template">
         <article className="card">
           <button
