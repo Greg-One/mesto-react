@@ -2,12 +2,28 @@ import React from 'react';
 import '../index.css';
 import avatar from '../images/Cousteau.jpg';
 
+function handleEditAvatarClick() {
+  document.querySelector('.popup_avatar').classList.add('popup_opened');
+}
+
+function handleEditProfileClick() {
+  document.querySelector('.popup_profile').classList.add('popup_opened');
+}
+
+function handleAddPlaceClick() {
+  document.querySelector('.popup_card').classList.add('popup_opened');
+}
+
 function Main() {
   return (
     <main>
       <section className="profile">
         <div className="profile__main">
-          <button aria-label="Изменить аватар" className="profile__avatar-edit">
+          <button
+            aria-label="Изменить аватар"
+            className="profile__avatar-edit"
+            onClick={handleEditAvatarClick}
+          >
             <img
               src={avatar}
               alt="Аватар пользователя"
@@ -23,6 +39,7 @@ function Main() {
               type="button"
               aria-label="Редактировать профиль"
               className="profile__edit-button"
+              onClick={handleEditProfileClick}
             ></button>
           </div>
         </div>
@@ -30,6 +47,7 @@ function Main() {
           type="button"
           aria-label="Добавить фотографию"
           className="profile__add-button"
+          onClick={handleAddPlaceClick}
         ></button>
       </section>
 
