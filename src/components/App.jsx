@@ -1,16 +1,15 @@
 import '../index.css';
 import Header from './Header.jsx';
 import Main from './Main.jsx';
+import Footer from './Footer.jsx';
 
 function App() {
   return (
     <div className="page">
       <Header />
       <Main />
+      <Footer />
 
-      <footer className="footer">
-        <p className="footer__copyright">&copy; 2020 Mesto Russia</p>
-      </footer>
       <section className="popup popup_profile">
         <form
           name="profile-info"
