@@ -1,45 +1,13 @@
-import avatar from '../images/Cousteau.jpg';
 import '../index.css';
 import Header from './Header.jsx';
+import Main from './Main.jsx';
 
 function App() {
   return (
     <div className="page">
       <Header />
-      <main>
-        <section className="profile">
-          <div className="profile__main">
-            <button
-              aria-label="Изменить аватар"
-              className="profile__avatar-edit"
-            >
-              <img
-                src={avatar}
-                alt="Аватар пользователя"
-                className="profile__avatar"
-              />
-            </button>
-            <div className="profile__info">
-              <div className="profile__user">
-                <h1 className="profile__name">Жак-Ив Кусто</h1>
-                <p className="profile__occupation">Исследователь океана</p>
-              </div>
-              <button
-                type="button"
-                aria-label="Редактировать профиль"
-                className="profile__edit-button"
-              ></button>
-            </div>
-          </div>
-          <button
-            type="button"
-            aria-label="Добавить фотографию"
-            className="profile__add-button"
-          ></button>
-        </section>
+      <Main />
 
-        <section className="cards"></section>
-      </main>
       <footer className="footer">
         <p className="footer__copyright">&copy; 2020 Mesto Russia</p>
       </footer>
