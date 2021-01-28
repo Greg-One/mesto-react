@@ -1,12 +1,13 @@
-import logo from './images/logo.svg';
-import './App.css';
+import mestoLogo from './images/logo.svg';
+import avatar from './images/Cousteau.jpg';
+import './index.css';
 
 function App() {
   return (
     <div className="page">
       <header className="header">
         <img
-          src={logo}
+          src={mestoLogo}
           alt="Логотип проекта 'Место'"
           className="header__logo"
         />
@@ -20,7 +21,7 @@ function App() {
               className="profile__avatar-edit"
             >
               <img
-                src="./images/Cousteau.jpg"
+                src={avatar}
                 alt="Аватар пользователя"
                 className="profile__avatar"
               />
