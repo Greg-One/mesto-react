@@ -2,6 +2,7 @@ import '../index.css';
 import Header from './Header.jsx';
 import Main from './Main.jsx';
 import Footer from './Footer.jsx';
+import PopupWithForm from './PopupWithForm.jsx';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
           </button>
         </form>
       </section>
+
       <section className="popup popup_card">
         <form
           name="add-card"
