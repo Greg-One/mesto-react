@@ -7,6 +7,9 @@ import PopupWithForm from './PopupWithForm.jsx';
 import ImagePopup from './ImagePopup.jsx';
 
 function App() {
+  {
+    /* Стейты и функции попапов */
+  }
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
@@ -139,7 +142,7 @@ function App() {
       </PopupWithForm>
 
       {/* Попап удаления карточки */}
-      <PopupWithForm name="remove" title="Вы уверены?" />
+      <PopupWithForm name="remove" title="Вы уверены?" buttonText="Да" />
 
       <template className="card-template">
         <article className="card">

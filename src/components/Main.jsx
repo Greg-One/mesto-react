@@ -1,6 +1,14 @@
 import avatar from '../images/Cousteau.jpg';
+import api from '../utils/Api.js';
 
 function Main(props) {
+  {
+    /* Стейты и функции api */
+  }
+  const [userName, setUserName] = useState('');
+  const [userDescription, setUserDescription] = useState('');
+  const [userAvatar, setUserAvatar] = useState('');
+
   return (
     <main>
       <section className="profile">
