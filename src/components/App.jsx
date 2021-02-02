@@ -44,6 +44,7 @@ function App() {
         name="profile"
         title="Редактировать профиль"
         isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
       >
         <fieldset name="user" className="popup__info">
           <input
@@ -82,6 +83,7 @@ function App() {
         name="card"
         title="Новое место"
         isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
       >
         <fieldset name="card" className="popup__info">
           <input
@@ -115,6 +117,7 @@ function App() {
         name="avatar"
         title="Обновить аватар"
         isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
       >
         <fieldset name="avatar" className="popup__info">
           <input
@@ -133,22 +136,7 @@ function App() {
       </PopupWithForm>
 
       {/* Попап удаления карточки */}
-      <section className="popup popup_remove">
-        <form className="popup__container popup__container_remove">
-          <h2 className="popup__title popup__title_remove">Вы уверены?</h2>
-          <button
-            aria-label="Подтвердить"
-            className="popup__submit-button popup__submit-button_remove"
-          >
-            Да
-          </button>
-          <button
-            type="button"
-            aria-label="Закрыть"
-            className="popup__close-button"
-          ></button>
-        </form>
-      </section>
+      <PopupWithForm name="remove" title="Вы уверены?" />
 
       <template className="card-template">
         <article className="card">
