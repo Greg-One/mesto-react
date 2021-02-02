@@ -23,6 +23,12 @@ function App() {
     setEditAvatarPopupOpen(true);
   }
 
+  function closeAllPopups() {
+    setEditProfilePopupOpen(false);
+    setAddPlacePopupOpen(false);
+    setEditAvatarPopupOpen(false);
+  }
+
   return (
     <div className="page">
       <Header />
@@ -104,24 +110,6 @@ function App() {
         </fieldset>
       </PopupWithForm>
 
-      {/* Попап удаления карточки */}
-      <section className="popup popup_remove">
-        <form className="popup__container popup__container_remove">
-          <h2 className="popup__title popup__title_remove">Вы уверены?</h2>
-          <button
-            aria-label="Подтвердить"
-            className="popup__submit-button popup__submit-button_remove"
-          >
-            Да
-          </button>
-          <button
-            type="button"
-            aria-label="Закрыть"
-            className="popup__close-button"
-          ></button>
-        </form>
-      </section>
-
       {/* Попап редактирования аватара */}
       <PopupWithForm
         name="avatar"
@@ -143,6 +131,24 @@ function App() {
           ></span>
         </fieldset>
       </PopupWithForm>
+
+      {/* Попап удаления карточки */}
+      <section className="popup popup_remove">
+        <form className="popup__container popup__container_remove">
+          <h2 className="popup__title popup__title_remove">Вы уверены?</h2>
+          <button
+            aria-label="Подтвердить"
+            className="popup__submit-button popup__submit-button_remove"
+          >
+            Да
+          </button>
+          <button
+            type="button"
+            aria-label="Закрыть"
+            className="popup__close-button"
+          ></button>
+        </form>
+      </section>
 
       <template className="card-template">
         <article className="card">
