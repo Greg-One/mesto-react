@@ -144,29 +144,6 @@ function App() {
       {/* Попап удаления карточки */}
       <PopupWithForm name="remove" title="Вы уверены?" buttonText="Да" />
 
-      <template className="card-template">
-        <article className="card">
-          <button
-            type="button"
-            className="card__remove-button"
-            aria-label="Удалить"
-          ></button>
-          <div className="card__image-container">
-            <img src="#" alt="Фотография места" className="card__image" />
-          </div>
-          <div className="card__description">
-            <h2 className="card__title"></h2>
-            <div className="card__like-container">
-              <button
-                type="button"
-                aria-label="Лайк"
-                className="card__like-button"
-              ></button>
-              <p className="card__like-count">0</p>
-            </div>
-          </div>
-        </article>
-      </template>
     </div>
   );
 }

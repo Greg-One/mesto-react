@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import avatar from '../images/Cousteau.jpg';
 import api from '../utils/Api.js';
 
 function Main(props) {
@@ -9,13 +8,15 @@ function Main(props) {
   const [userName, setUserName] = useState('');
   const [userDescription, setUserDescription] = useState('');
   const [userAvatar, setUserAvatar] = useState('');
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    Promise.all([api.getUserInfo()])
-      .then(([user]) => {
+    Promise.all([api.getUserInfo(), api.getInitialCards()])
+      .then(([user, cards]) => {
         setUserName(user.name);
         setUserDescription(user.about);
         setUserAvatar(user.avatar);
+        setCards(cards);
       })
       .catch((err) => console.log(`Ошибка: ${err}`));
   });
@@ -56,7 +57,37 @@ function Main(props) {
         ></button>
       </section>
 
-      <section className="cards"></section>
+      <section className="cards">
+        {cards.map((card, item) => {
+          return (
+            <article className="card">
+              <button
+                type="button"
+                className="card__remove-button"
+                aria-label="Удалить"
+              ></button>
+              <div className="card__image-container">
+                <img
+                  src={card.link}
+                  alt="Фотография места"
+                  className="card__image"
+                />
+              </div>
+              <div className="card__description">
+                <h2 className="card__title">{card.title}</h2>
+                <div className="card__like-container">
+                  <button
+                    type="button"
+                    aria-label="Лайк"
+                    className="card__like-button"
+                  ></button>
+                  <p className="card__like-count">{card.likes.length}</p>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </section>
     </main>
   );
 }
