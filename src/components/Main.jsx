@@ -19,7 +19,7 @@ function Main(props) {
         setCards(cards);
       })
       .catch((err) => console.log(`Ошибка: ${err}`));
-  });
+  }, []);
 
   return (
     <main>
