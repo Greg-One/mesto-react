@@ -26,56 +26,49 @@ function App() {
   return (
     <div className="page">
       <Header />
-      <Main />
+      <Main
+        onEditProfileClick={handleEditProfileClick}
+        onAddPlaceClick={handleAddPlaceClick}
+        onEditAvatarClick={handleEditAvatarClick}
+      />
       <Footer />
 
-      <section className="popup popup_profile">
-        <form
-          name="profile-info"
-          className="popup__container popup__container_profile"
-          noValidate
-        >
-          <button
-            type="button"
-            aria-label="Закрыть"
-            className="popup__close-button"
-          ></button>
-          <h2 className="popup__title">Редактировать профиль</h2>
-          <fieldset name="user" className="popup__info">
-            <input
-              type="text"
-              placeholder="Имя"
-              name="name"
-              required=""
-              minLength="2"
-              maxLength="40"
-              className="popup__input popup__input_type_name"
-              id="profile-name-input"
-            />
-            <span
-              className="popup__input-error"
-              id="profile-name-input-error"
-            ></span>
-            <input
-              type="text"
-              placeholder="Род занятий"
-              name="job"
-              required=""
-              minLength="2"
-              maxLength="200"
-              className="popup__input popup__input_type_occupation"
-              id="profie-occupation-input"
-            />
-            <span
-              className="popup__input-error"
-              id="profie-occupation-input-error"
-            ></span>
-          </fieldset>
-          <button aria-label="Сохранить" className="popup__submit-button">
-            Сохранить
-          </button>
-        </form>
-      </section>
+      <PopupWithForm
+        name="profile"
+        title="Редактировать профиль"
+        isOpen={isEditProfilePopupOpen}
+      >
+        <fieldset name="user" className="popup__info">
+          <input
+            type="text"
+            placeholder="Имя"
+            name="name"
+            required=""
+            minLength="2"
+            maxLength="40"
+            className="popup__input popup__input_type_name"
+            id="profile-name-input"
+          />
+          <span
+            className="popup__input-error"
+            id="profile-name-input-error"
+          ></span>
+          <input
+            type="text"
+            placeholder="Род занятий"
+            name="job"
+            required=""
+            minLength="2"
+            maxLength="200"
+            className="popup__input popup__input_type_occupation"
+            id="profie-occupation-input"
+          />
+          <span
+            className="popup__input-error"
+            id="profie-occupation-input-error"
+          ></span>
+        </fieldset>
+      </PopupWithForm>
 
       <section className="popup popup_card">
         <form

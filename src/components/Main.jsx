@@ -1,6 +1,6 @@
 import avatar from '../images/Cousteau.jpg';
 
-function Main() {
+function Main(props) {
   return (
     <main>
       <section className="profile">
@@ -8,7 +8,7 @@ function Main() {
           <button
             aria-label="Изменить аватар"
             className="profile__avatar-edit"
-            onClick={handleEditAvatarClick}
+            onClick={props.onEditAvatarClick}
           >
             <img
               src={avatar}
@@ -25,7 +25,7 @@ function Main() {
               type="button"
               aria-label="Редактировать профиль"
               className="profile__edit-button"
-              onClick={handleEditProfileClick}
+              onClick={props.onEditProfileClick}
             ></button>
           </div>
         </div>
@@ -33,7 +33,7 @@ function Main() {
           type="button"
           aria-label="Добавить фотографию"
           className="profile__add-button"
-          onClick={handleAddPlaceClick}
+          onClick={props.onAddPlaceClick}
         ></button>
       </section>
 
