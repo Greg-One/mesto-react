@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import '../index.css';
 import Header from './Header.jsx';
 import Main from './Main.jsx';
@@ -6,6 +7,10 @@ import PopupWithForm from './PopupWithForm.jsx';
 import ImagePopup from './ImagePopup.jsx';
 
 function App() {
+  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
+
   return (
     <div className="page">
       <Header />
