@@ -11,6 +11,18 @@ function App() {
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
 
+  function handleEditProfileClick() {
+    setEditProfilePopupOpen(true);
+  }
+
+  function handleAddPlaceClick() {
+    setAddPlacePopupOpen(true);
+  }
+
+  function handleEditAvatarClick() {
+    setEditAvatarPopupOpen(true);
+  }
+
   return (
     <div className="page">
       <Header />
@@ -25,7 +37,7 @@ function App() {
         >
           <button
             type="button"
-            aria-label="Закрыть попап редактирования профиля"
+            aria-label="Закрыть"
             className="popup__close-button"
           ></button>
           <h2 className="popup__title">Редактировать профиль</h2>
@@ -59,10 +71,7 @@ function App() {
               id="profie-occupation-input-error"
             ></span>
           </fieldset>
-          <button
-            aria-label="Сохранить новые данные профиля"
-            className="popup__submit-button"
-          >
+          <button aria-label="Сохранить" className="popup__submit-button">
             Сохранить
           </button>
         </form>
@@ -76,7 +85,7 @@ function App() {
         >
           <button
             type="button"
-            aria-label="Закрыть попап добавления фотографии"
+            aria-label="Закрыть"
             className="popup__close-button"
           ></button>
           <h2 className="popup__title">Новое место</h2>
@@ -108,10 +117,7 @@ function App() {
               id="card-url-input-error"
             ></span>
           </fieldset>
-          <button
-            aria-label="Создать новую карточку с фотографией"
-            className="popup__submit-button"
-          >
+          <button aria-label="Создать" className="popup__submit-button">
             Создать
           </button>
         </form>
@@ -121,14 +127,14 @@ function App() {
         <form className="popup__container popup__container_remove">
           <h2 className="popup__title popup__title_remove">Вы уверены?</h2>
           <button
-            aria-label="Подтвердить удаление карточки"
+            aria-label="Подтвердить"
             className="popup__submit-button popup__submit-button_remove"
           >
             Да
           </button>
           <button
             type="button"
-            aria-label="Закрыть окно удаления карточки"
+            aria-label="Закрыть"
             className="popup__close-button"
           ></button>
         </form>
@@ -141,7 +147,7 @@ function App() {
         >
           <button
             type="button"
-            aria-label="Закрыть окно изменения аватара"
+            aria-label="Закрыть"
             className="popup__close-button"
           ></button>
           <h2 className="popup__title">Обновить аватар</h2>
@@ -159,10 +165,7 @@ function App() {
               id="avatar-url-input-error"
             ></span>
           </fieldset>
-          <button
-            aria-label="Сохранить новый аватар"
-            className="popup__submit-button"
-          >
+          <button aria-label="Сохранить" className="popup__submit-button">
             Сохранить
           </button>
         </form>
@@ -172,7 +175,7 @@ function App() {
           <button
             type="button"
             className="card__remove-button"
-            aria-label="Удалить карточку"
+            aria-label="Удалить"
           ></button>
           <div className="card__image-container">
             <img src="#" alt="Фотография места" className="card__image" />
@@ -182,7 +185,7 @@ function App() {
             <div className="card__like-container">
               <button
                 type="button"
-                aria-label="Поставить карточке лайк"
+                aria-label="Лайк"
                 className="card__like-button"
               ></button>
               <p className="card__like-count">0</p>

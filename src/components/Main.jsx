@@ -1,17 +1,5 @@
 import avatar from '../images/Cousteau.jpg';
 
-function handleEditAvatarClick() {
-  document.querySelector('.popup_avatar').classList.add('popup_opened');
-}
-
-function handleEditProfileClick() {
-  document.querySelector('.popup_profile').classList.add('popup_opened');
-}
-
-function handleAddPlaceClick() {
-  document.querySelector('.popup_card').classList.add('popup_opened');
-}
-
 function Main() {
   return (
     <main>
