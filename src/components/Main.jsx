@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../utils/Api.js';
+import Card from './Card.jsx';
 
 function Main(props) {
   {
@@ -58,34 +59,8 @@ function Main(props) {
       </section>
 
       <section className="cards">
-        {cards.map((card, item) => {
-          return (
-            <article className="card">
-              <button
-                type="button"
-                className="card__remove-button"
-                aria-label="Удалить"
-              ></button>
-              <div className="card__image-container">
-                <img
-                  src={card.link}
-                  alt="Фотография места"
-                  className="card__image"
-                />
-              </div>
-              <div className="card__description">
-                <h2 className="card__title">{card.title}</h2>
-                <div className="card__like-container">
-                  <button
-                    type="button"
-                    aria-label="Лайк"
-                    className="card__like-button"
-                  ></button>
-                  <p className="card__like-count">{card.likes.length}</p>
-                </div>
-              </div>
-            </article>
-          );
+        {cards.map((card) => {
+          return <Card key={card._id} card={card} />;
         })}
       </section>
     </main>
