@@ -1,6 +1,8 @@
 function PopupWithForm(props) {
   return (
-    <section className={`popup popup_${props.name}`}>
+    <section
+      className={`popup popup_${props.name} ${props.isOpen && 'popup_opened'}`}
+    >
       <form
         name={props.name}
         className={`popup__container popup__container_${props.name}`}
