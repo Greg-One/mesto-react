@@ -30,6 +30,7 @@ function App() {
 
   function handleCardClick(card) {
     setSelectedCard({
+      ...selectedCard,
       link: card.link,
       name: card.name,
     });
