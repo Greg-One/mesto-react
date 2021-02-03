@@ -1,11 +1,12 @@
-function ImagePopup() {
+function ImagePopup(props) {
   return (
-    <section className="popup popup_image">
+    <section className={`popup popup_image ${props.isOpen && 'popup_opened'}`}>
       <div className="popup__image-container">
         <button
           type="button"
           aria-label="Закрыть попап с фотографией"
           className="popup__close-button"
+          onClick={props.onClose}
         ></button>
         <img
           src="#"
