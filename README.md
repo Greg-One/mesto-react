@@ -31,7 +31,7 @@
 
 **Страница размещена на Github Pages**
 
-- [Ссылка на Github Pages](https://greg-one.github.io/mesto/index.html)
+- [Ссылка на Github Pages](https://greg-one.github.io/mesto-react/index.html)
 
 **Планы по доработке проекта**
 
