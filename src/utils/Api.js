@@ -8,11 +8,9 @@ class Api {
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
-      )
-      .catch((err) => console.log(err));
+    }).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
+    );
   }
 
   // Редактирование информации о пользователе
@@ -24,22 +22,18 @@ class Api {
         name: user.name,
         about: user.job,
       }),
-    })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
-      )
-      .catch((err) => console.log(err));
+    }).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
+    );
   }
 
   // Получение карточек с сервера
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
-      )
-      .catch((err) => console.log(err));
+    }).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
+    );
   }
 
   // Добавление своей карточки
@@ -51,11 +45,9 @@ class Api {
         name: data.name,
         link: data.link,
       }),
-    })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
-      )
-      .catch((err) => console.log(err));
+    }).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
+    );
   }
 
   // Удаление своей карточки
@@ -63,11 +55,9 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${card._cardId}`, {
       method: 'DELETE',
       headers: this._headers,
-    })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
-      )
-      .catch((err) => console.log(err));
+    }).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
+    );
   }
 
   // Посатвить лайк
@@ -75,11 +65,9 @@ class Api {
     return fetch(`${this._baseUrl}/cards/likes/${card._cardId}`, {
       method: 'PUT',
       headers: this._headers,
-    })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
-      )
-      .catch((err) => console.log(err));
+    }).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
+    );
   }
 
   // Убрать лайк
@@ -87,11 +75,9 @@ class Api {
     return fetch(`${this._baseUrl}/cards/likes/${card._cardId}`, {
       method: 'DELETE',
       headers: this._headers,
-    })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
-      )
-      .catch((err) => console.log(err));
+    }).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
+    );
   }
 
   // Установить новый аватар
@@ -102,11 +88,9 @@ class Api {
       body: JSON.stringify({
         avatar: newAvatar.link,
       }),
-    })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
-      )
-      .catch((err) => console.log(err));
+    }).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`),
+    );
   }
 }
 
