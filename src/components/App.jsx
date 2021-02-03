@@ -13,6 +13,8 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
+  const [isImagePopupOpen, setImagePopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({});
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
@@ -26,10 +28,15 @@ function App() {
     setEditAvatarPopupOpen(true);
   }
 
+  function handleCardClick() {
+    setImagePopupOpen(true);
+  }
+
   function closeAllPopups() {
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
+    setImagePopupOpen(false);
   }
 
   return (
@@ -143,7 +150,6 @@ function App() {
 
       {/* Попап удаления карточки */}
       <PopupWithForm name="remove" title="Вы уверены?" buttonText="Да" />
-
     </div>
   );
 }

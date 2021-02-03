@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../utils/Api.js';
 import Card from './Card.jsx';
-import logo from '../images/Cousteau.jpg';
+import avatar from '../images/Cousteau.jpg';
 
 function Main(props) {
   {
@@ -33,7 +33,7 @@ function Main(props) {
             onClick={props.onEditAvatarClick}
           >
             <img
-              src={userAvatar ? userAvatar : logo}
+              src={userAvatar ? userAvatar : avatar}
               alt="Аватар пользователя"
               className="profile__avatar"
             />
