@@ -1,6 +1,10 @@
 function Card(props) {
+  function handleClick() {
+    props.onCardClick(props.card);
+  }
+
   return (
-    <article className="card">
+    <article className="card" onClick={handleClick}>
       <button
         type="button"
         className="card__remove-button"

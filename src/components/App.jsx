@@ -28,7 +28,11 @@ function App() {
     setEditAvatarPopupOpen(true);
   }
 
-  function handleCardClick() {
+  function handleCardClick(card) {
+    setSelectedCard({
+      src: card.link,
+      name: card.name,
+    });
     setImagePopupOpen(true);
   }
 
@@ -46,6 +50,7 @@ function App() {
         onEditProfileClick={handleEditProfileClick}
         onAddPlaceClick={handleAddPlaceClick}
         onEditAvatarClick={handleEditAvatarClick}
+        onCardClick={handleCardClick}
       />
       <Footer />
 
@@ -147,6 +152,12 @@ function App() {
           ></span>
         </fieldset>
       </PopupWithForm>
+
+      <ImagePopup
+        isOpen={isImagePopupOpen}
+        onClose={closeAllPopups}
+        card={selectedCard}
+      />
 
       {/* Попап удаления карточки */}
       <PopupWithForm name="remove" title="Вы уверены?" buttonText="Да" />
