@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../utils/Api.js';
 import Card from './Card.jsx';
+import logo from '../images/Cousteau.jpg';
 
 function Main(props) {
   {
@@ -32,15 +33,19 @@ function Main(props) {
             onClick={props.onEditAvatarClick}
           >
             <img
-              src={userAvatar}
+              src={userAvatar ? userAvatar : logo}
               alt="Аватар пользователя"
               className="profile__avatar"
             />
           </button>
           <div className="profile__info">
             <div className="profile__user">
-              <h1 className="profile__name">{userName}</h1>
-              <p className="profile__occupation">{userDescription}</p>
+              <h1 className="profile__name">
+                {userName ? userName : 'Жак-Ив Кусто'}
+              </h1>
+              <p className="profile__occupation">
+                {userDescription ? userDescription : 'Исследователь океана'}
+              </p>
             </div>
             <button
               type="button"
