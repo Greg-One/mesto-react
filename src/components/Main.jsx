@@ -30,7 +30,7 @@ function Main(props) {
           <button
             aria-label="Изменить аватар"
             className="profile__avatar-edit"
-            onClick={props.onEditAvatarClick}
+            onClick={props.onEditAvatar}
           >
             <img
               src={userAvatar ? userAvatar : avatar}
@@ -51,7 +51,7 @@ function Main(props) {
               type="button"
               aria-label="Редактировать профиль"
               className="profile__edit-button"
-              onClick={props.onEditProfileClick}
+              onClick={props.onEditProfile}
             ></button>
           </div>
         </div>
@@ -59,7 +59,7 @@ function Main(props) {
           type="button"
           aria-label="Добавить фотографию"
           className="profile__add-button"
-          onClick={props.onAddPlaceClick}
+          onClick={props.onAddPlace}
         ></button>
       </section>
 
