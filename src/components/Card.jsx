@@ -4,7 +4,7 @@ function Card(props) {
   }
 
   return (
-    <article className="card" onClick={handleClick}>
+    <article className="card">
       <button
         type="button"
         className="card__remove-button"
@@ -15,6 +15,7 @@ function Card(props) {
           src={props.card.link}
           alt={props.card.name}
           className="card__image"
+          onClick={handleClick}
         />
       </div>
       <div className="card__description">

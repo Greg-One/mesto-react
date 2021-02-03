@@ -30,7 +30,7 @@ function App() {
 
   function handleCardClick(card) {
     setSelectedCard({
-      src: card.link,
+      link: card.link,
       name: card.name,
     });
     setImagePopupOpen(true);
