@@ -9,11 +9,11 @@ function ImagePopup(props) {
           onClick={props.onClose}
         ></button>
         <img
-          src="#"
-          alt="Фотография выбранного места"
+          src={props.card.link}
+          alt={props.card.name}
           className="popup__photo"
         />
-        <h3 className="popup__card-title">Название выбранного места</h3>
+        <h3 className="popup__card-title">{props.card.name}</h3>
       </div>
     </section>
   );
