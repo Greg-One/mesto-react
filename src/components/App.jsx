@@ -45,6 +45,12 @@ function App() {
     setImagePopupOpen(false);
   }
 
+  {
+    /*Стейт пользователя*/
+  }
+
+  const [currentUser, setCurrentUser] = useState();
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
