@@ -53,7 +53,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({
     name: '',
     about: '',
-    avatear: '',
+    avatar: '',
   });
 
   useEffect(() => {
