@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import api from '../utils/Api.js';
 import Card from './Card.jsx';
 import avatar from '../images/Cousteau.jpg';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function Main(props) {
   {
@@ -23,6 +24,8 @@ function Main(props) {
       .catch((err) => console.log(`Ошибка: ${err}`));
   }, []);
 
+  const currentUser = useContext(CurrentUserContext);
+
   return (
     <main>
       <section className="profile">
@@ -33,7 +36,7 @@ function Main(props) {
             onClick={props.onEditAvatar}
           >
             <img
-              src={userAvatar ? userAvatar : avatar}
+              src={currentUser.avatar ? currentUser.avatar : avatar}
               alt="Аватар пользователя"
               className="profile__avatar"
             />
@@ -41,10 +44,10 @@ function Main(props) {
           <div className="profile__info">
             <div className="profile__user">
               <h1 className="profile__name">
-                {userName ? userName : 'Жак-Ив Кусто'}
+                {currentUser.name ? currentUser.name : 'Жак-Ив Кусто'}
               </h1>
               <p className="profile__occupation">
-                {userDescription ? userDescription : 'Исследователь океана'}
+                {currentUser.about ? currentUser.about : 'Исследователь океана'}
               </p>
             </div>
             <button
