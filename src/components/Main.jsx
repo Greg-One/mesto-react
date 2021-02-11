@@ -15,9 +15,9 @@ function Main(props) {
   useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([user, cards]) => {
-        setUserName(user.name);
-        setUserDescription(user.about);
-        setUserAvatar(user.avatar);
+        // setUserName(user.name);
+        // setUserDescription(user.about);
+        // setUserAvatar(user.avatar);
         setCards(cards);
       })
       .catch((err) => console.log(`Ошибка: ${err}`));
