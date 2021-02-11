@@ -33,7 +33,7 @@ function Card(props) {
     <article className="card">
       <button
         type="button"
-        className="card__remove-button"
+        className={cardRemoveButtonClassName}
         aria-label="Удалить"
       ></button>
       <div className="card__image-container">
@@ -50,7 +50,7 @@ function Card(props) {
           <button
             type="button"
             aria-label="Лайк"
-            className="card__like-button"
+            className={cardLikeButtonClassName}
             onClick={handleLikeClick}
           ></button>
           <p className="card__like-count">{props.card.likes.length}</p>
