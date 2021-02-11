@@ -1,4 +1,26 @@
+import { useContext } from 'react';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
+
 function Card(props) {
+  const currentUser = useContext(CurrentUserContext);
+
+  const isOwn = props.card.owner._id === currentUser._id;
+
+  {
+    /* Удаление */
+  }
+  const cardRemoveButtonClassName = `card__remove-button ${
+    isOwn ? 'card__remove-button_visible' : ''
+  }`;
+
+  {
+    /* Лайк */
+  }
+  const isLiked = props.card.likes.some((i) => i._id === currentUser._id);
+  const cardLikeButtonClassName = `card__like-button ${
+    isLiked ? 'card__like-button_active' : ''
+  }`;
+
   function handleClick() {
     props.onCardClick(props.card);
   }
