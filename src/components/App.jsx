@@ -52,8 +52,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState();
 
   return (
-    <div className="page">
-      <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
         <Header />
         <Main
           onEditProfile={handleEditProfileClick}
@@ -173,8 +173,8 @@ function App() {
 
         {/* Попап удаления карточки */}
         <PopupWithForm name="remove" title="Вы уверены?" buttonText="Да" />
-      </CurrentUserContext.Provider>
-    </div>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 
