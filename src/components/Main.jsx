@@ -8,9 +8,7 @@ function Main(props) {
   {
     /* Стейты и функции api */
   }
-  const [userName, setUserName] = useState(null);
-  const [userDescription, setUserDescription] = useState(null);
-  const [userAvatar, setUserAvatar] = useState(null);
+
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
