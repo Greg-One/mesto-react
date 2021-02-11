@@ -60,7 +60,7 @@ function App() {
     api.getUserInfo().then((user) => {
       setCurrentUser(user);
     });
-  });
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

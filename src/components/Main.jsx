@@ -12,14 +12,24 @@ function Main(props) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    Promise.all([api.getInitialCards()])
-      .then(([cards]) => {
+    api
+      .getInitialCards()
+      .then((cards) => {
         setCards(cards);
       })
       .catch((err) => console.log(`Ошибка: ${err}`));
   }, []);
 
   const currentUser = useContext(CurrentUserContext);
+
+  function handleCardLike(card) {
+    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+
+    api.addCardLike(card._id, !isLiked).then((newCard) => {
+      const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
+      setCards(newCards);
+    });
+  }
 
   return (
     <main>
@@ -64,7 +74,12 @@ function Main(props) {
       <section className="cards">
         {cards.map((card) => {
           return (
-            <Card key={card._id} card={card} onCardClick={props.onCardClick} />
+            <Card
+              key={card._id}
+              card={card}
+              onCardClick={props.onCardClick}
+              onCardLike={handleCardLike}
+            />
           );
         })}
       </section>
