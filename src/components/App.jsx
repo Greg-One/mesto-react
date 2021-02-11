@@ -49,7 +49,11 @@ function App() {
     /*Стейт пользователя*/
   }
 
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState({
+    name: '',
+    about: '',
+    avatear: '',
+  });
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
