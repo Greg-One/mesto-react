@@ -80,6 +80,11 @@ class Api {
     );
   }
 
+  changeCardLikeStatus(cardId, isLiked) {
+    isLiked ? this.removeCardLike(cardId) : this.addCardLike(cardId);
+    console.log(isLiked);
+  }
+
   // Установить новый аватар
   setNewAvatar(newAvatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
