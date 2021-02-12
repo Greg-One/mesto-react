@@ -75,6 +75,12 @@ function App() {
         />
         <Footer />
 
+        {/* Попап редактирования профиля */}
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+        />
+
         {/* Попап добавления карточки */}
         <PopupWithForm
           name="card"
