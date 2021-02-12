@@ -13,6 +13,23 @@ function EditProfilePopup(props) {
     setDescription(currentUser.about);
   }, [currentUser]);
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    props.onUpdateUser({
+      name,
+      about: description,
+    });
+  }
+
+  function handleNameInputChange(event) {
+    setName(event.target.value);
+  }
+
+  function handleDescriptionInputChange(event) {
+    setDescription(event.terget.value);
+  }
+
   return (
     <PopupWithForm
       name="profile"
@@ -31,6 +48,7 @@ function EditProfilePopup(props) {
           maxLength="40"
           className="popup__input popup__input_type_name"
           id="profile-name-input"
+          onChange={handleNameInputChange}
         />
         <span
           className="popup__input-error"
@@ -45,6 +63,7 @@ function EditProfilePopup(props) {
           maxLength="200"
           className="popup__input popup__input_type_occupation"
           id="profie-occupation-input"
+          onChange={handleDescriptionInputChange}
         />
         <span
           className="popup__input-error"
