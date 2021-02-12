@@ -37,6 +37,7 @@ function EditProfilePopup(props) {
       buttonText="Сохранить"
       isOpen={props.isOpen}
       onClose={props.onClose}
+      onSubmit={handleSubmit}
     >
       <fieldset name="user" className="popup__info">
         <input
@@ -48,6 +49,7 @@ function EditProfilePopup(props) {
           maxLength="40"
           className="popup__input popup__input_type_name"
           id="profile-name-input"
+          value={name}
           onChange={handleNameInputChange}
         />
         <span
@@ -63,6 +65,7 @@ function EditProfilePopup(props) {
           maxLength="200"
           className="popup__input popup__input_type_occupation"
           id="profie-occupation-input"
+          value={description}
           onChange={handleDescriptionInputChange}
         />
         <span
