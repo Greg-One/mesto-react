@@ -6,6 +6,10 @@ function EditAvatarPopup(props) {
   const avatarRef = useRef();
   const currentUser = useContext(CurrentUserContext);
 
+  useEffect(() => {
+    avatarRef.current.value = currentUser.avatar;
+  }, [currentUser]);
+
   function handleSubmit(event) {
     event.preventDefault();
 
