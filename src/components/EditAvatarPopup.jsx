@@ -1,11 +1,13 @@
+import PopupWithForm from './PopupWithForm.jsx';
+
 function EditAvatarPopup(props) {
   return (
     <PopupWithForm
       name="avatar"
       title="Обновить аватар"
       buttonText="Сохранить"
-      isOpen={isEditAvatarPopupOpen}
-      onClose={closeAllPopups}
+      isOpen={props.isOpen}
+      onClose={props.onClose}
     >
       <fieldset name="avatar" className="popup__info">
         <input
@@ -21,3 +23,5 @@ function EditAvatarPopup(props) {
     </PopupWithForm>
   );
 }
+
+export default EditAvatarPopup;
