@@ -14,7 +14,7 @@ class Api {
   }
 
   // Редактирование информации о пользователе
-  editUserInfo(user) {
+  setUserInfo(user) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
