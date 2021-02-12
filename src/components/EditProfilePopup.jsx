@@ -1,4 +1,9 @@
+import { useState } from 'react';
+
 function EditProfilePopup(props) {
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+
   return (
     <PopupWithForm
       name="profile"
