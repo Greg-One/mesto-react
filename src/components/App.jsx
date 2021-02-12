@@ -72,6 +72,14 @@ function App() {
       .catch((err) => console.log(err));
   }
 
+  function handleUpdateAvatar(user) {
+    api
+      .setNewAvatar(user)
+      .then(setCurrentUser)
+      .then(closeAllPopups)
+      .catch((err) => console.log(err));
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
