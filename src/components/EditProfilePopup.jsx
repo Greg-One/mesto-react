@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
+import PopupWithForm from './PopupWithForm.jsx';
 
 function EditProfilePopup(props) {
   const [name, setName] = useState('');
@@ -17,8 +18,8 @@ function EditProfilePopup(props) {
       name="profile"
       title="Редактировать профиль"
       buttonText="Сохранить"
-      isOpen={isEditProfilePopupOpen}
-      onClose={closeAllPopups}
+      isOpen={props.isOpen}
+      onClose={props.onClose}
     >
       <fieldset name="user" className="popup__info">
         <input
