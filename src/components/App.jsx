@@ -101,6 +101,8 @@ function App() {
     });
   }
 
+
+  
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -111,6 +113,7 @@ function App() {
           onEditAvatar={handleEditAvatarClick}
           onCardClick={handleCardClick}
           onCardLike={handleCardLike}
+          onCardDelete={handleCardDelete}
           cards={cards}
         />
         <Footer />
