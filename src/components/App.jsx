@@ -59,12 +59,9 @@ function App() {
   });
 
   useEffect(() => {
-    api
-      .getUserInfo()
-      .then((user) => {
-        setCurrentUser(user);
-      })
-      .catch((err) => console.log(`Ошибка: ${err}`));
+    api.getUserInfo().then((user) => {
+      setCurrentUser(user);
+    });
   }, []);
 
   function handleUpdateUser(user) {
@@ -90,24 +87,18 @@ function App() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api
-      .getInitialCards()
-      .then((cards) => {
-        setCards(cards);
-      })
-      .catch((err) => console.log(`Ошибка: ${err}`));
+    api.getInitialCards().then((cards) => {
+      setCards(cards);
+    });
   }, []);
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
-    api
-      .changeCardLikeStatus(card._id, isLiked)
-      .then((newCard) => {
-        const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
-        setCards(newCards);
-      })
-      .catch((err) => console.log(`Ошибка: ${err}`));
+    api.changeCardLikeStatus(card._id, isLiked).then((newCard) => {
+      const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
+      setCards(newCards);
+    });
   }
 
   return (
