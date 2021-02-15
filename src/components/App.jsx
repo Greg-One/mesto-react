@@ -9,6 +9,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import api from '../utils/Api.js';
 import EditProfilePopup from './EditProfilePopup.jsx';
 import EditAvatarPopup from './EditAvatarPopup.jsx';
+import AddPlacePopup from './AddPlcaePopup';
 
 function App() {
   //! Стейты и функции попапов
@@ -86,6 +87,7 @@ function App() {
     });
   }, []);
 
+  // Лайк
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
@@ -95,12 +97,15 @@ function App() {
     });
   }
 
+  // Удаление
   function handleCardDelete(card) {
     api.removeCard(card._id).then(() => {
       const newCards = cards.filter((c) => c._id !== card._id);
       setCards(newCards);
     });
   }
+
+  function handleAddPlace(card) {}
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -125,42 +130,11 @@ function App() {
         />
 
         {/* Попап добавления карточки */}
-        <PopupWithForm
-          name="card"
-          title="Новое место"
-          buttonText="Создать"
+        <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
-        >
-          <fieldset name="card" className="popup__info">
-            <input
-              type="text"
-              placeholder="Название"
-              name="name"
-              required=""
-              minLength="2"
-              maxLength="30"
-              className="popup__input popup__input_type_title"
-              id="card-title-input"
-            />
-            <span
-              className="popup__input-error"
-              id="card-title-input-error"
-            ></span>
-            <input
-              type="url"
-              placeholder="Ссылка на изображение"
-              name="link"
-              required=""
-              className="popup__input popup__input_type_url"
-              id="card-url-input"
-            />
-            <span
-              className="popup__input-error"
-              id="card-url-input-error"
-            ></span>
-          </fieldset>
-        </PopupWithForm>
+          onAddPlace={handleAddPlace}
+        />
 
         {/* Попап редактирования аватара */}
         <EditAvatarPopup
