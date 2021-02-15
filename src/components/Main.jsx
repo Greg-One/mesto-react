@@ -1,38 +1,10 @@
-import { useState, useEffect, useContext } from 'react';
-import api from '../utils/Api.js';
+import { useContext } from 'react';
 import Card from './Card.jsx';
 import avatar from '../images/Cousteau.jpg';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function Main(props) {
-  {
-    /* Стейты и функции api */
-  }
-
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    api
-      .getInitialCards()
-      .then((cards) => {
-        setCards(cards);
-      })
-      .catch((err) => console.log(`Ошибка: ${err}`));
-  }, []);
-
   const currentUser = useContext(CurrentUserContext);
-
-  function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
-    api
-      .changeCardLikeStatus(card._id, isLiked)
-      .then((newCard) => {
-        const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
-        setCards(newCards);
-      })
-      .catch((err) => console.log(`Ошибка: ${err}`));
-  }
 
   return (
     <main>
@@ -75,13 +47,13 @@ function Main(props) {
       </section>
 
       <section className="cards">
-        {cards.map((card) => {
+        {props.cards.map((card) => {
           return (
             <Card
               key={card._id}
               card={card}
               onCardClick={props.onCardClick}
-              onCardLike={handleCardLike}
+              onCardLike={props.onCardLike}
             />
           );
         })}
