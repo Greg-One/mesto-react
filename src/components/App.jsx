@@ -9,7 +9,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import api from '../utils/Api.js';
 import EditProfilePopup from './EditProfilePopup.jsx';
 import EditAvatarPopup from './EditAvatarPopup.jsx';
-import AddPlacePopup from './AddPlcaePopup';
+import AddPlacePopup from './AddPlacePopup';
 
 function App() {
   //! Стейты и функции попапов
