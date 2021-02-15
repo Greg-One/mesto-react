@@ -101,8 +101,12 @@ function App() {
     });
   }
 
+  function handleCardDelete(card) {
+    api.removeCard(card._id).then(() => {
+      setCards(cards.filter((i) => i._id !== card._id));
+    });
+  }
 
-  
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">

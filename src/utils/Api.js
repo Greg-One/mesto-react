@@ -49,7 +49,7 @@ class Api {
 
   // Удаление своей карточки
   removeCard(card) {
-    return fetch(`${this._baseUrl}/cards/${card._cardId}`, {
+    return fetch(`${this._baseUrl}/cards/${card}`, {
       method: 'DELETE',
       headers: this._headers,
     }).then((res) =>
