@@ -78,8 +78,7 @@ class Api {
   }
 
   changeCardLikeStatus(cardId, isLiked) {
-    isLiked ? this.removeCardLike(cardId) : this.addCardLike(cardId);
-    console.log(isLiked);
+    return isLiked ? this.removeCardLike(cardId) : this.addCardLike(cardId);
   }
 
   // Установить новый аватар
