@@ -39,7 +39,7 @@ class Api {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: data.name,
+        name: data.title,
         link: data.link,
       }),
     }).then((res) =>

@@ -105,7 +105,14 @@ function App() {
     });
   }
 
-  function handleAddPlace(card) {}
+  function handleAddPlace(data) {
+    api
+      .addCustomCard(data)
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
+      })
+      .then(closeAllPopups);
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
