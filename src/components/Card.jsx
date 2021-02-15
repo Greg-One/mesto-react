@@ -29,12 +29,17 @@ function Card(props) {
     props.onCardLike(props.card);
   }
 
+  function handleDeleteClick() {
+    props.onCardDelete(props.card);
+  }
+
   return (
     <article className="card">
       <button
         type="button"
         className={cardRemoveButtonClassName}
         aria-label="Удалить"
+        onClick={handleDeleteClick}
       ></button>
       <div className="card__image-container">
         <img
