@@ -11,9 +11,7 @@ import EditProfilePopup from './EditProfilePopup.jsx';
 import EditAvatarPopup from './EditAvatarPopup.jsx';
 
 function App() {
-  {
-    /* Стейты и функции попапов */
-  }
+  //! Стейты и функции попапов
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
@@ -48,10 +46,7 @@ function App() {
     setImagePopupOpen(false);
   }
 
-  {
-    /*Стейт пользователя*/
-  }
-
+  //! Стейт пользователя
   const [currentUser, setCurrentUser] = useState({
     name: '',
     about: '',
@@ -64,6 +59,7 @@ function App() {
     });
   }, []);
 
+  // Обновление пользователя
   function handleUpdateUser(user) {
     api
       .setUserInfo(user)
@@ -72,6 +68,7 @@ function App() {
       .catch((err) => console.log(err));
   }
 
+  // Обновление аватара
   function handleUpdateAvatar(user) {
     api
       .setNewAvatar(user)
@@ -80,10 +77,7 @@ function App() {
       .catch((err) => console.log(err));
   }
 
-  {
-    /* Карточка */
-  }
-
+  //! Стейты и функции карточки
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -103,7 +97,8 @@ function App() {
 
   function handleCardDelete(card) {
     api.removeCard(card._id).then(() => {
-      setCards(cards.filter((i) => i._id !== card._id));
+      const newCards = cards.filter((c) => c._id !== card._id);
+      setCards(newCards);
     });
   }
 

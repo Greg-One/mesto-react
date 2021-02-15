@@ -3,32 +3,30 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function Card(props) {
   const currentUser = useContext(CurrentUserContext);
-
   const isOwn = props.card.owner._id === currentUser._id;
 
-  {
-    /* Удаление */
-  }
+  // Кнопка удаления
   const cardRemoveButtonClassName = `card__remove-button ${
     isOwn ? 'card__remove-button_visible' : ''
   }`;
 
-  {
-    /* Лайк */
-  }
+  // Кнопка лайка
   const isLiked = props.card.likes.some((i) => i._id === currentUser._id);
   const cardLikeButtonClassName = `card__like-button ${
     isLiked ? 'card__like-button_active' : ''
   }`;
 
+  // Попап с картинкой
   function handleClick() {
     props.onCardClick(props.card);
   }
 
+  // Лайк
   function handleLikeClick() {
     props.onCardLike(props.card);
   }
 
+  // Удаление
   function handleDeleteClick() {
     props.onCardDelete(props.card);
   }

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import PopupWithForm from './PopupWithForm.jsx';
 
 function EditAvatarPopup(props) {
+  //! Реф и функции поапап обновления аватара
   const avatarRef = useRef();
 
   function handleSubmit(event) {
