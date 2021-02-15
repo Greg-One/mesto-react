@@ -59,9 +59,12 @@ function App() {
   });
 
   useEffect(() => {
-    api.getUserInfo().then((user) => {
-      setCurrentUser(user);
-    });
+    api
+      .getUserInfo()
+      .then((user) => {
+        setCurrentUser(user);
+      })
+      .catch((err) => console.log(`Ошибка: ${err}`));
   }, []);
 
   function handleUpdateUser(user) {
