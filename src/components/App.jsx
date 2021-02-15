@@ -19,6 +19,9 @@ function App() {
   const [isImagePopupOpen, setImagePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
 
+  // Текст при загрузке
+  const [isLoading, setLoading] = useState(false);
+
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
   }
@@ -62,20 +65,24 @@ function App() {
 
   // Обновление пользователя
   function handleUpdateUser(user) {
+    setLoading(true);
+
     api
       .setUserInfo(user)
       .then(setCurrentUser)
       .then(closeAllPopups)
-      .catch((err) => console.log(err));
+      .finally(setTimeout(() => setLoading(false), 1500));
   }
 
   // Обновление аватара
   function handleUpdateAvatar(user) {
+    setLoading(true);
+
     api
       .setNewAvatar(user)
       .then(setCurrentUser)
       .then(closeAllPopups)
-      .catch((err) => console.log(err));
+      .finally(setTimeout(() => setLoading(false), 1500));
   }
 
   //! Стейты и функции карточки
@@ -97,7 +104,7 @@ function App() {
     });
   }
 
-  // Удаление
+  // Удаление карточки
   function handleCardDelete(card) {
     api.removeCard(card._id).then(() => {
       const newCards = cards.filter((c) => c._id !== card._id);
@@ -105,13 +112,17 @@ function App() {
     });
   }
 
+  // Добавление новой карточки
   function handleAddPlace(data) {
+    setLoading(true);
+
     api
       .addCustomCard(data)
       .then((newCard) => {
         setCards([newCard, ...cards]);
       })
-      .then(closeAllPopups);
+      .then(closeAllPopups)
+      .finally(setTimeout(() => setLoading(false), 1500));
   }
 
   return (
@@ -134,6 +145,7 @@ function App() {
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
+          onLoading={isLoading}
         />
 
         {/* Попап добавления карточки */}
@@ -141,6 +153,7 @@ function App() {
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           onAddPlace={handleAddPlace}
+          onLoading={isLoading}
         />
 
         {/* Попап редактирования аватара */}
@@ -148,15 +161,17 @@ function App() {
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
+          onLoading={isLoading}
         />
 
+        {/* Попап с картинкой*/}
         <ImagePopup
           isOpen={isImagePopupOpen}
           onClose={closeAllPopups}
           card={selectedCard}
         />
 
-        {/* Попап удаления карточки */}
+        {/* Попап удаления карточки на будущее */}
         <PopupWithForm name="remove" title="Вы уверены?" buttonText="Да" />
       </div>
     </CurrentUserContext.Provider>

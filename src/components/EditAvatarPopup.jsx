@@ -17,7 +17,7 @@ function EditAvatarPopup(props) {
     <PopupWithForm
       name="avatar"
       title="Обновить аватар"
-      buttonText="Сохранить"
+      buttonText={props.onLoading ? 'Сохранение...' : 'Сохранить'}
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}
