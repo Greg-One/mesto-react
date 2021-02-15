@@ -171,8 +171,9 @@ function App() {
           card={selectedCard}
         />
 
-        {/* Попап удаления карточки на будущее */}
+        {/* Попап удаления карточки на будущее 
         <PopupWithForm name="remove" title="Вы уверены?" buttonText="Да" />
+        */}
       </div>
     </CurrentUserContext.Provider>
   );
