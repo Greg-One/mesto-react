@@ -57,9 +57,12 @@ function App() {
   });
 
   useEffect(() => {
-    api.getUserInfo().then((user) => {
-      setCurrentUser(user);
-    });
+    api
+      .getUserInfo()
+      .then((user) => {
+        setCurrentUser(user);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   // Обновление пользователя
@@ -70,6 +73,7 @@ function App() {
       .setUserInfo(user)
       .then(setCurrentUser)
       .then(closeAllPopups)
+      .catch((err) => console.log(err))
       .finally(setTimeout(() => setLoading(false), 1500));
   }
 
@@ -81,6 +85,7 @@ function App() {
       .setNewAvatar(user)
       .then(setCurrentUser)
       .then(closeAllPopups)
+      .catch((err) => console.log(err))
       .finally(setTimeout(() => setLoading(false), 1500));
   }
 
@@ -88,27 +93,36 @@ function App() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api.getInitialCards().then((cards) => {
-      setCards(cards);
-    });
+    api
+      .getInitialCards()
+      .then((cards) => {
+        setCards(cards);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   // Лайк
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
-    api.changeCardLikeStatus(card._id, isLiked).then((newCard) => {
-      const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
-      setCards(newCards);
-    });
+    api
+      .changeCardLikeStatus(card._id, isLiked)
+      .then((newCard) => {
+        const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
+        setCards(newCards);
+      })
+      .catch((err) => console.log(err));
   }
 
   // Удаление карточки
   function handleCardDelete(card) {
-    api.removeCard(card._id).then(() => {
-      const newCards = cards.filter((c) => c._id !== card._id);
-      setCards(newCards);
-    });
+    api
+      .removeCard(card._id)
+      .then(() => {
+        const newCards = cards.filter((c) => c._id !== card._id);
+        setCards(newCards);
+      })
+      .catch((err) => console.log(err));
   }
 
   // Добавление новой карточки
@@ -121,6 +135,7 @@ function App() {
         setCards([newCard, ...cards]);
       })
       .then(closeAllPopups)
+      .catch((err) => console.log(err))
       .finally(setTimeout(() => setLoading(false), 1500));
   }
 
