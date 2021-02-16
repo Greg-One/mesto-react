@@ -4,7 +4,7 @@ class Api {
     this._headers = headers;
   }
 
-  // Получение информации о польтзователе
+  // Получение информации польтзователя
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
