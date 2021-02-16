@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import '../index.css';
-import Header from './Header.jsx';
-import Main from './Main.jsx';
-import Footer from './Footer.jsx';
-import ImagePopup from './ImagePopup.jsx';
+import Header from './Header.js';
+import Main from './Main.js';
+import Footer from './Footer.js';
+import ImagePopup from './ImagePopup.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import api from '../utils/Api.js';
-import EditProfilePopup from './EditProfilePopup.jsx';
-import EditAvatarPopup from './EditAvatarPopup.jsx';
+import EditProfilePopup from './EditProfilePopup.js';
+import EditAvatarPopup from './EditAvatarPopup.js';
 import AddPlacePopup from './AddPlacePopup';
 
 function App() {

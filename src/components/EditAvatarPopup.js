@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import PopupWithForm from './PopupWithForm.jsx';
+import PopupWithForm from './PopupWithForm.js';
 
 function EditAvatarPopup(props) {
   //! Реф и функции поапап обновления аватара
