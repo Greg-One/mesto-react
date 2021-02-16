@@ -38,6 +38,7 @@ function AddPlacePopup(props) {
           maxLength="30"
           className="popup__input popup__input_type_title"
           id="card-title-input"
+          value={title}
           onChange={handleTitleInputChange}
         />
         <span className="popup__input-error" id="card-title-input-error"></span>
@@ -48,6 +49,7 @@ function AddPlacePopup(props) {
           required=""
           className="popup__input popup__input_type_url"
           id="card-url-input"
+          value={link}
           onChange={handleLinkInputChange}
         />
         <span className="popup__input-error" id="card-url-input-error"></span>
