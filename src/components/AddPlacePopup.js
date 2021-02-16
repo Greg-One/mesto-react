@@ -17,6 +17,11 @@ function AddPlacePopup(props) {
     event.preventDefault();
 
     props.onAddPlace({ title, link });
+
+    setTimeout(() => {
+      setTitle('');
+      setLink('');
+    }, 1500);
   }
 
   return (

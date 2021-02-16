@@ -11,6 +11,10 @@ function EditAvatarPopup(props) {
     props.onUpdateAvatar({
       avatar: avatarRef.current.value,
     });
+
+    setTimeout(() => {
+      avatarRef.current.value = '';
+    }, 1500);
   }
 
   return (
